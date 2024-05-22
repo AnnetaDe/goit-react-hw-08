@@ -1,13 +1,9 @@
-import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-
-const mockApi = axios.create({
-  baseURL: 'https://6647b3552bb946cf2f9ea671.mockapi.io/',
-});
+import { herokuApi } from '../../config/herokuApi';
 
 export const getContactsOper = createAsyncThunk('contacts/get', async (_, thunkApi) => {
   try {
-    const response = await mockApi.get('contacts');
+    const response = await herokuApi.get('contacts');
     return response.data;
   } catch (error) {
     return thunkApi.rejectWithValue(error);
@@ -18,7 +14,7 @@ getContactsOper();
 
 export const addContactsOper = createAsyncThunk('contacts/add', async (contact, thunkApi) => {
   try {
-    const response = await mockApi.post('contacts', contact);
+    const response = await herokuApi.post('contacts', contact);
     return response.data;
   } catch (error) {
     return thunkApi.rejectWithValue(error);
@@ -27,7 +23,18 @@ export const addContactsOper = createAsyncThunk('contacts/add', async (contact, 
 
 export const deleteContactsOper = createAsyncThunk('contacts/delete', async (id, thunkApi) => {
   try {
-    const { data } = await mockApi.delete(`contacts/${id}`);
+    const { data } = await herokuApi.delete(`contacts/${id}`);
+
+    return data;
+  } catch (error) {
+    return thunkApi.rejectWithValue(error);
+  }
+});
+
+export const changeContactsOper = createAsyncThunk('contacts/change', async (id, thunkApi) => {
+  try {
+    const { data } = await herokuApi.patch(`contacts/${id}`);
+    console.log('its change');
 
     return data;
   } catch (error) {
