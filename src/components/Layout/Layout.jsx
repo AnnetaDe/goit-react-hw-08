@@ -2,7 +2,7 @@ import { Outlet } from 'react-router-dom';
 import { NavBar } from '../NavBar/NavBar';
 import s from './Layout.module.css';
 import { useSelector } from 'react-redux';
-import { selectIsLoggedIn, selectUserName } from '../../redux/auth/selectorsAuth';
+import { selectUserName } from '../../redux/auth/selectors';
 
 export const Layout = () => {
   const userName = useSelector(selectUserName);

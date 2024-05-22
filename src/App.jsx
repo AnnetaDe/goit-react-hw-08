@@ -14,13 +14,8 @@ import { Login } from './pages/Login/Login.jsx';
 import { Register } from './pages/Register/Register.jsx';
 import { Privat } from './routes/Private';
 import { Public } from './routes/Public.jsx';
-import { refreshThunk } from './redux/auth/operationsAuth.js';
-import { selectIsRefreshing } from './redux/auth/selectorsAuth.js';
-
-// const Home = lazy(() => import('./pages/Home'));
-// const ContactsPage = lazy(() => import('./pages/ContactsPage'));
-// const Login = lazy(() => import('./pages/Login'));
-// const Register = lazy(() => import('./pages/Register'));
+import { refreshThunk } from './redux/auth/operations.js';
+import { selectIsRefreshing } from './redux/auth/selectors.js';
 
 function App() {
   const dispatch = useDispatch();

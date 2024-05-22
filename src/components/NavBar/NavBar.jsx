@@ -1,8 +1,8 @@
 import { NavLink } from 'react-router-dom';
 import s from './NavBar.module.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectIsLoggedIn, selectUserName } from '../../redux/auth/selectorsAuth';
-import { logOutThunk } from '../../redux/auth/operationsAuth';
+import { selectIsLoggedIn, selectUserName } from '../../redux/auth/selectors';
+import { logOutThunk } from '../../redux/auth/operations';
 
 export const NavBar = () => {
   const dispatch = useDispatch();

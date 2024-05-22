@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import s from './Login.module.css';
-import { loginThunk } from '../../redux/auth/operationsAuth';
+import { loginThunk } from '../../redux/auth/operations';
 // ann@ann.com
 export const Login = () => {
   const dispatch = useDispatch();
