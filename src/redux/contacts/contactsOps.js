@@ -31,9 +31,9 @@ export const deleteContactsOper = createAsyncThunk('contacts/delete', async (id,
   }
 });
 
-export const changeContactsOper = createAsyncThunk('contacts/change', async (id, thunkApi) => {
+export const changeContactsOper = createAsyncThunk('contacts/change', async (body, thunkApi) => {
   try {
-    const { data } = await herokuApi.patch(`contacts/${id}`);
+    const { data } = await herokuApi.patch(`contacts/${body.id},body`);
     console.log('its change');
 
     return data;

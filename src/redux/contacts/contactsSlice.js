@@ -1,5 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getContactsOper, addContactsOper, deleteContactsOper } from './contactsOps';
+import {
+  getContactsOper,
+  addContactsOper,
+  deleteContactsOper,
+  changeContactsOper,
+} from './contactsOps';
 
 const initialState = {
   items: [],
@@ -46,14 +51,17 @@ const contactsSlice = createSlice({
       .addCase(deleteContactsOper.fulfilled, (state, { payload }) => {
         state.items = state.items.filter(item => item.id !== payload.id);
       })
+      .addCase(changeContactsOper.fulfilled, (state, { payload }) => {
+        const item = state.todos.find(item => item.id === payload.id);
+        item.todo = payload.todo;
+      })
       .addMatcher(
         ({ type }) => type.endsWith('/pending'),
         state => {
           state.isLoading = true;
-          state.error = null;
+          state.error = false;
         }
       )
-
       .addMatcher(
         ({ type }) => type.endsWith('/fulfilled'),
         (state, { error }) => {
@@ -61,7 +69,6 @@ const contactsSlice = createSlice({
           state.error = error;
         }
       )
-
       .addMatcher(
         ({ type }) => type.endsWith('/rejected'),
         (state, { error }) => {
