@@ -1,6 +1,6 @@
 import { createSelector } from '@reduxjs/toolkit';
 
-import { authReducer } from './slices';
+import { authReducer } from './slice';
 
 export const selectUserName = state => state.auth.user.name;
 export const selectToken = state => state.auth.token;

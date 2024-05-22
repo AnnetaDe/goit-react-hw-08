@@ -10,8 +10,7 @@ export const Layout = () => {
   return (
     <div className={s.layout}>
       <header>
-        <h2>Auth</h2>
-        <p>{userName}</p>
+        <p>Hello, {userName}</p>
         <NavBar />
       </header>
 

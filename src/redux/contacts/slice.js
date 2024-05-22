@@ -4,7 +4,7 @@ import {
   addContactsOper,
   deleteContactsOper,
   changeContactsOper,
-} from './contactsOps';
+} from './operations';
 
 const initialState = {
   items: [],
@@ -21,24 +21,6 @@ const contactsSlice = createSlice({
     addCurrentContact(state, action) {
       state.currentContact = action.payload;
     },
-
-    // addContact: {
-    //   reducer(state, action) {
-    //     state.items.push(action.payload);
-    //   },
-    //   prepare(values) {
-    //     return {
-    //       payload: {
-    //         name: values.name,
-    //         number: values.number,
-    //         id: nanoid(),
-    //       },
-    //     };
-    //   },
-    // },
-    // deleteContact(state, action) {
-    //   state.items = state.items.filter(item => item.id !== action.payload);
-    // },
   },
   extraReducers: builder => {
     builder

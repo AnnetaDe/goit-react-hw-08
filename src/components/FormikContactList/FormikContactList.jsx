@@ -3,7 +3,7 @@ import s from './FormikContactList.module.css';
 import { selectNameFilter } from '../../redux/filter/filtersSlice';
 
 import { FormikContact } from '../FormikContact/FormikContact';
-import { selectContacts } from '../../redux/contacts/contactsSlice';
+import { selectContacts } from '../../redux/contacts/slice';
 
 export const FormikContactList = () => {
   const contacts = useSelector(selectContacts);

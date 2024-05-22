@@ -3,7 +3,7 @@ import { FormikContactList } from '../../components/FormikContactList/FormikCont
 import { FormikContactForm } from '../../components/FormikForm/FormikForm';
 import { FormikSearchBox } from '../../components/FormikSearchBox/FormikSearchBox';
 import { useDispatch } from 'react-redux';
-import { getContactsOper } from '../../redux/contacts/contactsOps';
+import { getContactsOper } from '../../redux/contacts/operations';
 export const ContactsPage = () => {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -11,7 +11,6 @@ export const ContactsPage = () => {
   }, [dispatch]);
   return (
     <div>
-      Contacts
       <FormikSearchBox />
       <FormikContactForm />
       <FormikContactList />
