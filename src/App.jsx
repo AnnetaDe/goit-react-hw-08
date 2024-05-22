@@ -1,12 +1,8 @@
 import './App.css';
-import { FormikContactForm } from './components/FormikForm/FormikForm';
-import { FormikSearchBox } from './components/FormikSearchBox/FormikSearchBox';
-import { FormikContactList } from './components/FormikContactList/FormikContactList';
-import { formValidation } from './components/FormikForm/formValidation';
+
 import { useDispatch, useSelector } from 'react-redux';
-import { lazy, Suspense, useEffect } from 'react';
-import { getContactsOper } from './redux/contacts/contactsOps';
-import { selectError, selectIsLoading } from './redux/contacts/selectors';
+import { useEffect } from 'react';
+
 import { Loader } from './components/Loader/Loader';
 
 import { Route, Routes } from 'react-router-dom';

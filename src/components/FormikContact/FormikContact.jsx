@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import s from './FormikContact.module.css';
-import { changeContactsOper, deleteContactsOper } from '../../redux/contacts/contactsOps';
+import { deleteContactsOper } from '../../redux/contacts/contactsOps';
 
 export const FormikContact = ({ id, name, number }) => {
   const dispatch = useDispatch();
