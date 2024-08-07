@@ -9,6 +9,7 @@ import {
 const initialState = {
   items: [],
   isLoading: false,
+  wantToDel: false,
   error: null,
   currentContact: null,
 };
@@ -20,6 +21,9 @@ const contactsSlice = createSlice({
   reducers: {
     addCurrentContact(state, action) {
       state.currentContact = action.payload;
+    },
+    wantToDelContact(state, action) {
+      state.wantToDel = true;
     },
   },
   extraReducers: builder => {
@@ -37,6 +41,7 @@ const contactsSlice = createSlice({
         const item = state.todos.find(item => item.id === payload.id);
         item.todo = payload.todo;
       })
+
       .addMatcher(
         ({ type }) => type.endsWith('/pending'),
         state => {
@@ -61,6 +66,6 @@ const contactsSlice = createSlice({
   },
 });
 
-export const { addCurrentContact, deleteContact } = contactsSlice.actions;
+export const { addCurrentContact, wantToDelContact } = contactsSlice.actions;
 export const contactsReducer = contactsSlice.reducer;
 export const { selectContacts } = contactsSlice.selectors;

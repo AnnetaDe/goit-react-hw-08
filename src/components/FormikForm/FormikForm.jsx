@@ -2,7 +2,6 @@ import s from './FormikForm.module.css';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import { formValidation } from './formValidation';
 import { useDispatch } from 'react-redux';
-import { addCurrentContact } from '../../redux/contacts/slice';
 import { addContactsOper } from '../../redux/contacts/operations';
 
 export const FormikContactForm = () => {
@@ -13,8 +12,12 @@ export const FormikContactForm = () => {
   };
 
   const handleSubmit = (values, actions) => {
-    dispatch(addCurrentContact(values));
-    dispatch(addContactsOper(values));
+    // dispatch(addCurrentContact(values));
+    dispatch(addContactsOper(values))
+      .unwrap()
+      .then(() => {
+        console.log('succses');
+      });
     actions.resetForm();
   };
 

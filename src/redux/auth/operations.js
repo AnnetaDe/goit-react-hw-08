@@ -1,10 +1,10 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { clearToken, herokuApi, setToken } from '../../config/herokuApi';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const signUpThunk = createAsyncThunk('users/signup', async (credentials, thunkApi) => {
   try {
     const { data } = await herokuApi.post('users/signup', credentials);
-    alert('You have successfully registered!');
     console.log(data);
     return data;
   } catch (error) {
